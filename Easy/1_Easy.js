@@ -5,5 +5,4 @@ var name, age, username;
 name = prompt("What is your name?");
 age = prompt("What is your age?");
 username = prompt("What is your username?");
-var info = "your name is " + name + ", you are " + age + " years old, and your username is " + username;
-
+alert("your name is " + name + ", you are " + age + " years old, and your username is " + username);
