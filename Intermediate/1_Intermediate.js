@@ -13,8 +13,14 @@ var Events = (function(){
     var calendar = [];
     var returnObj = {
         edit: function(item, hour, updatedItem, updatedHour){
-            this.remove(item, hour);
-            this.add(updatedItem, updatedHour);
+            for (var i = 0; i < calendar.length; i++){
+                if (calendar[i].item === item && calendar[i].hour === hour){
+                    this.remove(item, hour);
+                    this.add(updatedItem, updatedHour);
+                    return;
+                }
+            }
+            console.log("Could not find \"" + item + "\" at hour " + hour + " to edit.");
         },
 
         add: function(item, hour){
@@ -65,5 +71,5 @@ test.add("Cook dinner", 1);
 test.remove("Clean the car", 2);
 test.printCal();
 console.log("\n");
-test.edit("Do another thing", 1, "Wash dirty laundry", 2);
+test.edit("Do other thing", 1, "Wash dirty laundry", 2);
 test.printCal();
